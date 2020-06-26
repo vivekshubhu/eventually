@@ -51,6 +51,21 @@ document.addEventListener('DOMContentLoaded', function() {
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
+        
+      eventDrop : function(element) {
+          console.log(element);
+           let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
+          let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
+          changedEvent = {
+            _method : 'PUT',
+            start:start,
+            end:end,
+            title:element.event.title,
+            id:element.event.id,
+          }
+          sendEvent(routeEvents('routeEventUpdate'), changedEvent);
+
+      },       
       eventReceive: function(element){
           // console.log(event); 
         console.log(element)
@@ -69,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       eventClick: function(element){
           // clearMessages(#message);
+          console.log(element);
 
           resetForm("#formEvent");
           $("#modalCalendar").modal('show');
@@ -95,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
 
       eventResize: function(element){
+        console.log(element);
           let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
           let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
           
@@ -102,7 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
             _method: 'PUT',
             id: element.event.id,
             start: start,
-            end: end
+            end: end,
+            title:element.event.title
           };
 
           sendEvent(routeEvents('routeEventUpdate'),newEvent);
@@ -110,6 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
       select: function(element){
 
         // clearMessages(element)
+
+
+        // console.log(element);
           resetForm("#formEvent");
 
           $("#modalCalendar").modal('show');
@@ -118,6 +139,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
           let start = moment(element.start).format("DD/MM/YYYY HH:mm:ss");
           $("#modalCalendar input[name='start']").val(start);
+          let allDay = element.allDay;
+          $("#modalCalendar input[name='allDay']").val(allDay);
+          // console.log(allDay)
+
 
           let end = moment(element.end).format("DD/MM/YYYY HH:mm:ss");
           $("#modalCalendar input[name='end']").val(end);

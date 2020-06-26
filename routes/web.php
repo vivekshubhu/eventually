@@ -23,8 +23,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','FullCalendarController@index')->name('index');
 
+Route::get('/login','PostController@login');
+
+Route::post('/login','PostController@loginUser')->name('loginUser');
+
+Route::get('/signup','PostController@signup');
+
+
+Route::post('/signup','PostController@storeUser')->name('routePostData');
+
+
 Route::get('/load-events','EventController@loadEvents')->name('routeLoadEvents');
 
 Route::put('/event-update','EventController@update')->name('routeEventUpdate');
 
 Route::post('/event-store','EventController@store')->name('routeEventStore');
+
+Route::delete('/event-delete','EventController@destroy')->name('routeEventDelete');
+
+Route::get('/notification','EventController@notify');
+
+Route::get('/profile','EventController@profile');
+
+Route::get('/contactus','EventController@contactus');
+
+
+
+
+

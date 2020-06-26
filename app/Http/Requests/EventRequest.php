@@ -37,7 +37,7 @@ class EventRequest extends FormRequest
             'start.date_format' => 'fill in a valid start date',
             'start.before' => 'The start date / time must be less than the end date',
             'end.date_format' => 'fill in a valid end date',
-            'end.after' => 'The start date / time must be less than the end date',
+            'end.after' => 'The end date / time must be bigger than the start date',
         ];
     }
 }
