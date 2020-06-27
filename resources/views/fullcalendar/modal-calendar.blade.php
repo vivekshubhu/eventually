@@ -17,6 +17,8 @@
             <div class="col-sm-8">
               <input type="text" name="title" class="form-control" id="title">
               <input type="hidden" name="id">
+              <input type="hidden" name="allDay">
+
             </div>
           </div>
 
@@ -52,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger deleteEvent">exit</button>
+        <button type="button" class="btn btn-danger deleteEvent">delete</button>
         <button type="button" class="btn btn-primary saveEvent">Save changes</button>
       </div>
     </div>

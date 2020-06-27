@@ -10,10 +10,27 @@ $(function(){
     	}
 	});
 
-	$(".saveEvent").click(function(){
+	$(".deleteEvent").click(function(){
 
+		let id = $("#modalCalendar input[name='id']").val();
+
+		let Event = {
+			id : id,
+			_method: 'DELETE'
+		};
+
+		let route = routeEvents('routeEventDelete');
+
+		sendEvent(route,Event);
+	});
+
+	$(".saveEvent").click(function(){
+		// alert();
 		  let id = $("#modalCalendar input[name='id']").val();
+		  // console.log('test', id);
+		  let allDay = $("#modalCalendar input[name='allDay']").val();
 	          
+	          console.log(typeof(allDay));
 	      let title = $("#modalCalendar input[name='title']").val();
 	      
 	      let start = moment($("#modalCalendar input[name='start']").val(),"DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
@@ -34,12 +51,16 @@ $(function(){
 
 	      let route;
 
-	      if (id == ' '){
+	      if (allDay==='true'){
+	      		// console.log('ifftesT');
 	      		route = routeEvents('routeEventStore');
 	      }
 	      else{
+	      		console.log('elsetesT');
 	      		route = routeEvents('routeEventUpdate');
 	      		Event.id = id;
+	      	console.log(id);
+
 	      		Event._method = 'PUT'; 
 	      }
 
@@ -47,6 +68,7 @@ $(function(){
 
  	});
 });
+
 
 function sendEvent(route, data_){
 	$.ajax({
@@ -57,7 +79,7 @@ function sendEvent(route, data_){
 		success:function (json){
 
 			if(json){
-				// location.reload();
+				location.reload();
 				$('#modalCalendar').modal('hide');
 				console.log("Hello world");
 			}
@@ -67,7 +89,7 @@ function sendEvent(route, data_){
 			let responseJSON = json.responseJSON.errors;
 
 			// console.log(typeof(responseJSON));
-			let errors = Object.keys(responseJSON).map(k => responseJSON[k])
+			let errors = Object.keys(responseJSON).map(k => responseJSON[k]);
 			// $.each(responseJSON, function() {
 			//   var key = Object.keys(this)[0];
 			//   //do something with value;
@@ -101,9 +123,9 @@ function routeEvents(route){
 	return document.getElementById('calendar').dataset[route];
 }
 
-function clearMessages(element){
-	$(element).text('');
-} 
+// function clearMessages(element){
+// 	$(element).text('');
+// } 
 
 function resetForm(form){
 	$(form)[0].reset();

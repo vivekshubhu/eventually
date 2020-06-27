@@ -16,30 +16,59 @@
 </head>
 <body>
   @include('fullcalendar.modal-calendar')
+  <div id="nav">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><h2>Event Calendar</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Manage Events<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/notification">Notification</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+          
+          <li class="nav-item">
+              <a class="nav-link" href="">Contact us</a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+  </div>
   <div id='wrap'>
 
-    <div id='external-events'>
-      <h4>Draggable Events</h4>
+    <div id='external-events d-none' >
+      <!-- <h4>Draggable Events</h4> -->
 
       <div id='external-events-list'>
-        <div class='fc-event'>My Event 1</div>
+       <!--  <div class='fc-event'>My Event 1</div>
         <div class='fc-event'>My Event 2</div>
         <div class='fc-event'>My Event 3</div>
         <div class='fc-event'>My Event 4</div>
-        <div class='fc-event'>My Event 5</div>
+        <div class='fc-event'>My Event 5</div> -->
       </div>
 
-      <p>
+     <!--  <p>
         <input type='checkbox' id='drop-remove' />
         <label for='drop-remove'>remove after drop</label>
-      </p>
-    </div>
+      </p> -->
+  </div>
 @csrf
 @method('PUT')
-    <div id='calendar' 
+    <div id='calendar'
+    style="margin-right: 89px;" 
     data-route-load-events="{{ route('routeLoadEvents')}}"
     data-route-event-update="{{ route('routeEventUpdate')}}" 
-    data-route-event-store="{{ route('routeEventStore')}}"     
+    data-route-event-store="{{ route('routeEventStore')}}"
+    data-route-event-delete="{{ route('routeEventDelete')}}"     
     ></div>
 
     <div style='...'></div>
