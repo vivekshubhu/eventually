@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id = "form-data" method="POST" action="{{ route('register') }}">
                         @csrf
 
                             <p class="h4 mb-4">Sign up</p>
@@ -34,7 +34,7 @@
     </small>
 
 
-    <input type="password" id="defaultRegisterFormPassword" name = "confirmPassword" class="form-control" placeholder="confirmPassword" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <input type="password" id="password_confirmation" name = "password_confirmation" class="form-control" placeholder="confirmPassword" aria-describedby="defaultRegisterFormPasswordHelpBlock">
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
             At least 8 characters and 1 digit.Please be sure to match the password
         </small>

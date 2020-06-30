@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('/','FullCalendarController@index')->name('index');
+Route::get('/home','FullCalendarController@index')->middleware('auth');
 
 Route::get('/login','PostController@login');
 
@@ -35,7 +35,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 
 
-Route::post('/signup','PostController@storeUser')->name('routePostData');
+Route::post('/signup','PostController@storeUser')->name('register');
 
 
 Route::get('/load-events','EventController@loadEvents')->name('routeLoadEvents');
@@ -57,6 +57,6 @@ Route::get('/contactus','EventController@contactus');
 
 
 
-// Auth::routes();
+Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -22,13 +22,9 @@ class PostController extends Controller
     	// ];
 
                 
-            $validatedData = $request->validate([
-               'first_name' => 'required|string',
-                'last_name' => 'required|string',
-                'password' => 'required|string',
-                'confirmPassword' => 'required|string',
-                'email' => 'required|email',
-            ]);
+            // $validatedData = $request->validate([
+               
+            // ]);
 
 
 
