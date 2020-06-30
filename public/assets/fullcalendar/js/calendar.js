@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       eventClick: function(element){
           // clearMessages(#message);
-          console.log(element);
-
           resetForm("#formEvent");
           $("#modalCalendar").modal('show');
           $("#modalCalendar #titleModal").text('Change Event');
