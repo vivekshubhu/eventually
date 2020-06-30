@@ -10,11 +10,13 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
 <link href="{{asset('assets/fullcalendar/css/style.css')}}" rel='stylesheet' />
+<link href="{{asset('assets/fullcalendar/css/app.css')}}" rel='stylesheet' />
+
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
-<body>
+<body class="m-0">
   @include('fullcalendar.modal-calendar')
   <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,8 +39,23 @@
             </li>
           
           <li class="nav-item">
-              <a class="nav-link" href="">Contact us</a>
+              <a class="nav-link" href="/contactus">Contact us</a>
           </li>
+          <li class="nav-item">
+           <a class="btn btn-primary"href="{{ route('logout') }}"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+              </li>
+         <!--  <li class="nav-item">
+              <a class="nav-link" href="/login">log in</a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="/signup">sign up</a>
+          </li> -->
           </ul>
         </div>
       </nav>
@@ -61,6 +78,7 @@
         <label for='drop-remove'>remove after drop</label>
       </p> -->
   </div>
+  <br><br><br><br>
 @csrf
 @method('PUT')
     <div id='calendar'

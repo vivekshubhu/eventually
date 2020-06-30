@@ -42,7 +42,7 @@
 
       <!-- Register -->
       <p>Not a member?
-        <a href="">Register</a>
+        <a href="signup">Register</a>
       </p>
     </form>
     <!-- Form -->

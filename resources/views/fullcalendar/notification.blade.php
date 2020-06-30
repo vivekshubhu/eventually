@@ -27,8 +27,16 @@
             </li>
           
             <li class="nav-item">
-            	<a class="nav-link" href="">Contact us</a>
+            	<a class="nav-link" href="/contactus">Contact us</a>
           	</li>
+            <li class="nav-item">
+           <a class="btn btn-primary"href="{{ route('logout') }}"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+              </li>
           	</ul>
         </div>
       </nav>

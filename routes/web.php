@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +29,11 @@ Route::post('/login','PostController@loginUser')->name('loginUser');
 
 Route::get('/signup','PostController@signup');
 
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+
+
+
 
 Route::post('/signup','PostController@storeUser')->name('routePostData');
 
@@ -51,3 +56,7 @@ Route::get('/contactus','EventController@contactus');
 
 
 
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

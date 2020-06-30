@@ -8,7 +8,7 @@ use App\user;
 class PostController extends Controller
 {
     public function login () {
-        return view('loginPage');
+        return view('auth.login');
     }
 
     public function signup(){
