@@ -46,6 +46,8 @@ Route::post('/event-store','EventController@store')->name('routeEventStore');
 
 Route::delete('/event-delete','EventController@destroy')->name('routeEventDelete');
 
+// Route::get('/master','EventController@master');
+
 Route::get('/notification','EventController@notify');
 
 Route::get('/profile','EventController@profile');

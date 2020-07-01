@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Http\Requests\EventRequest;
 use Illuminate\Http\Request;
+use Auth;
 
 class EventController extends Controller
 {
@@ -15,10 +16,15 @@ class EventController extends Controller
     }
 
     public function store(EventRequest $request){
-		// DD($request);
+		// dd($request->all());
 		// dd($request->all());
 		$data = $request->all();
 		$data['color'] = '#3788d8';
+        // dd($data);
+        $data['user_id'] = Auth::id();
+        // dd($data);
+        // dd(($data['user_id']));
+        // Event::create($data['user_id'],$request->id);
     	Event::create($data);
     	return response()->json(true);
 
@@ -26,12 +32,14 @@ class EventController extends Controller
 
     public function update(EventRequest $request){
         // dd($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth()->id();
     	$event = Event::where('id',$request->id)->first();
     	error_log($request->id);
     	// $event->fill($request->all);
 
     	// $event->save();
-    	$event->update($request->all());
+    	$event->update($data);
 
     	return response()->json(true);
     }
@@ -44,13 +52,26 @@ class EventController extends Controller
         return response()->json(true);
     }
 
+    // public function master(){
+    //     return view('fullcalendar.master');
+    // } 
     public function notify(){
-        return view('fullcalendar.notification');
+
+        $events = Event::all();
+        // foreach ($events as $event) 
+        //     {
+        //          //$product->skus is a collection of Sku models
+        //          dd( $event->user);
+        //     }
+        //     dd($events);
+        return view('fullcalendar.notification', compact('events'));
     }  
 
     public function profile(){
-        return view('fullcalendar.profile');
+        $user = Auth::user();
+        return view('fullcalendar.profile', compact("user"));
     }
+
     public function contactus(){
         return view('fullcalendar.contactus');
     }

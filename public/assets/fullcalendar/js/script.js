@@ -47,6 +47,7 @@ $(function(){
 	      	end: end,
 	      	color: color,
 	      	description: description,
+            user_id:1,
 	      };
 
 	      let route;

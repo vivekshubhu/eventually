@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             end:end,
             title:element.event.title,
             id:element.event.id,
+            user_id:1,
           }
           sendEvent(routeEvents('routeEventUpdate'), changedEvent);
 
@@ -77,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
             _method: 'POST',
             start: start,
             end: end,
-            title:element.event.title
+            title:element.event.title,
+            user_id:1,
           };
           console.log(newEvent);
           sendEvent(routeEvents('routeEventStore'),newEvent);
@@ -118,7 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
             id: element.event.id,
             start: start,
             end: end,
-            title:element.event.title
+            title:element.event.title,
+            user_id:1,
           };
 
           sendEvent(routeEvents('routeEventUpdate'),newEvent);

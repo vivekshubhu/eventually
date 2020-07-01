@@ -6,6 +6,7 @@
 
 </head>
 <body>
+
 	<div id="nav">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><h2>Event Calendar</h2></a>
@@ -16,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Manage Events</a>
+              <a class="nav-link" href="/home">Manage Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/notification">Notification<span class="sr-only">(current)</span></a>
@@ -51,10 +52,11 @@
  -->
 	    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 	    <a href="#" class="btn btn-primary">Go somewhere</a> -->
-	    <div>Name:</div>
-	    <div>email:</div>
-	    <div>phone:</div>
-	    <div>address:</div>
+      
+	    <div>Name : {{$user->first_name}} {{$user->last_name}}</div>
+	    <div>email : {{$user->email}}</div>
+	    <div>phone : {{$user->phone}}</div>
+	    <div>address : {{$user->address}}</div>
 	  </div>
 	</div>
 

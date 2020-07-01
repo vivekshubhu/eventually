@@ -10,7 +10,7 @@ class Event extends Model
 {
   	use SoftDeletes;
 
-  	protected $fillable = ['title', 'start', 'end', 'color', 'description'];
+  	protected $guarded = [];
 
   	public function getStartAttribute($value){
   		$dateStart = Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('Y-m-d');
@@ -25,4 +25,8 @@ class Event extends Model
 
   		return $this->end = ($timeEnd == '00:00:00' ? $dateEnd : $value);
   	}
+    
+    public function user(){
+      return $this-> belongsTo('App\User');
+    }
 }

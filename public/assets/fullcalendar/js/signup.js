@@ -16,7 +16,7 @@ $(function(){
 				if(Response.message) {
 					alert(Response.message);
 				}
-				window.location.href = '/';
+				window.location.href = '/home';
 				// alert(Response.message);
 				// if (Response.person_name) {
 				// 	$('#messages').append('<p class="alert">'+Response.person_name+'</p>')
@@ -57,7 +57,7 @@ $(function(){
 				if(Response.message) {
 					// alert(Response.message);
 				}
-				window.location.href = '/';
+				window.location.href = '/home';
 				// alert(Response.message);
 				// if (Response.person_name) {
 				// 	$('#messages').append('<p class="alert">'+Response.person_name+'</p>')

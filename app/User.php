@@ -19,4 +19,10 @@ class User extends Authenticatable
         'first_name','last_name', 'email', 'phone', 'password', 'address' 
     ];
 
+    // public function event(){
+    // 	return $this->hasMany('App\Event'); 
+
+    // }
+
 }
+ 
